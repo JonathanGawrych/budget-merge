@@ -20,11 +20,11 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          cp -pR ./dist ./public
+          cp -pR ./public/ ./dist
       - name: Deploy to 'gh-pages' branch
         id: deploy-with-token
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./public
+          publish_dir: ./dist
